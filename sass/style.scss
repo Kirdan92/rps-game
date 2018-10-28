@@ -1,4 +1,44 @@
 * {
   box-sizing: border-box;
-  background: #0097e6;
+  background: #40739e;
+}
+body {
+	padding-top: 60px;
+	text-align: center;
+}
+.game-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 20% 1fr 20%;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas:
+		". comp ."
+		"score output new-game"
+		". player ."
+
+}
+#computer-move-container {
+	background-color: #fff;
+	height: 100px;
+	grid-area: comp;
+}
+#score-container {
+	background-color: blue;
+	grid-area: score;
+}
+#new-game-container {
+	background-color: green;
+	grid-area: new-game;
+}
+#move-output-container {
+	background-color: #ccc;
+	grid-area: output;
+}
+#player-move-container {
+	background-color: red;
+	grid-area: player;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
 }
