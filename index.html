@@ -4,16 +4,32 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta charset="UTF-8">
 	<title>Rock Paper Scissors</title>
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<h1>Rock Paper Scissors Game</h1>
 	<div class="game-container">
-		<div id="computer-move-container">1</div>
+		<div id="computer-move-container">
+		</div>
 		<div id="move-output-container">1</div>
-		<div id="score-container">1</div>
+		<div id="point-to-win-container">
+			<h2 class="point-header">Points needed to win:</h2>
+			<h2 id="points">0</h2>
+		</div>
+		<div id="score-container">
+			<div class="score-header">
+				<h2 class="player-header">Player</h2>
+				<h2 class="computer-header">Computer</h2>
+			</div>
+			<div class="points-container">
+				<div id="player-points">0</div>
+				<div id="colon">:</div>
+				<div id="computer-points">0</div>
+			</div>
+		</div>
 		<div id="new-game-container">
-			<button id="new-game">New Game</button>
+			<button id="new-game-btn">New Game</button>
 		</div>
 		<div id="player-move-container">
 			<button id="rock">Rock</button>

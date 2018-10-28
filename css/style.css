@@ -1,15 +1,94 @@
-* { box-sizing: border-box; background: #40739e; }
+* {
+  box-sizing: border-box;
 
-body { padding-top: 60px; text-align: center; }
+}
+body {
+	padding-top: 60px;
+	text-align: center;
+	background: #40739e;
+	font-size: 18px;
+	font-family: 'Nunito', sans-serif;
+}
+.game-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 25% 1fr 25%;
+	    grid-template-columns: 25% 1fr 25%;
+	-ms-grid-rows: 1fr 1fr 1fr;
+	    grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas:
+		"points comp ."
+		"score output new-game"
+		". player .";
+	grid-gap: 15px;
 
-.game-container { max-width: 1200px; margin: 0 auto; display: -ms-grid; display: grid; -ms-grid-columns: 20% 1fr 20%; grid-template-columns: 20% 1fr 20%; -ms-grid-rows: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; grid-template-areas: ". comp ." "score output new-game" ". player ."; }
+}
+#computer-move-container {
+	background-color: #fff;
+	grid-area: comp;
 
-#computer-move-container { background-color: #fff; height: 100px; grid-area: comp; }
+}
+/* Points styles*/
+#point-to-win-container {
+	grid-area: points;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	    flex-direction: column;
+	-ms-flex-pack: center;
+	    justify-content: center;
+	font-size: 1em;
+}
+#point-to-win-container h2 {
+	margin: 0;
+}
+/* Score styles*/
+#score-container {
+	background-color: blue;
+	grid-area: score;
+	display: -ms-grid;
+	display: grid;
+	font-size: 1em;
+}
+.score-header {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 1fr 1fr;
+	    grid-template-columns: 1fr 1fr;
+}
+.player-header, .computer-header {
+	margin: 0;
+}
+.points-container {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 1fr auto 1fr;
+	    grid-template-columns: 1fr auto 1fr;
+	font-size: 2em;
+}
 
-#score-container { background-color: blue; grid-area: score; }
-
-#new-game-container { background-color: green; grid-area: new-game; }
-
-#move-output-container { background-color: #ccc; grid-area: output; }
-
-#player-move-container { background-color: red; grid-area: player; display: -ms-grid; display: grid; -ms-grid-columns: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; grid-gap: 10px; }
+/*New game styles*/
+#new-game-container {
+	background-color: green;
+	grid-area: new-game;
+	display: -ms-grid;
+	display: grid;
+}
+#new-game-btn {
+	z-index: 2;
+}
+#move-output-container {
+	background-color: #ccc;
+	grid-area: output;
+}
+#player-move-container {
+	background-color: red;
+	grid-area: player;
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 1fr 1fr 1fr;
+	    grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
+}
