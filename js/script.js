@@ -25,16 +25,19 @@
 	    compareMoves: function (cM) {
 	    	if (cM == this.win) {
 	    		console.log("you win");
+	    		document.getElementsByClassName("text-container")[0].innerHTML += "Player gets a point" + "<br>";
 	    		playerScore ++;
 	    		textplayerScore.innerText = playerScore;
 	    		resultMove = 'You get a point';
 	    	} else if (cM == this.lose) {
 	    		console.log("you lose");
+	    		document.getElementsByClassName("text-container")[0].innerHTML += "Point for Computer" + "<br>";
 	    		compScore ++;
 	    		textcompScore.innerText = compScore;
 	    		resultMove = 'Computer gets a point';
 	    	} else {
 	    		console.log("draw");
+	    		document.getElementsByClassName("text-container")[0].innerHTML += "DRAW" + "<br>";
 	    		resultMove = 'DRAW';
 	    	}
 	    }
@@ -61,11 +64,11 @@
 	    } else{
 	    	outputInfo.classList.remove("warning");
 	    	outputInfo.classList.remove("success");
-	    	output.innerText = "Pick your move"
+	    	output.innerText = "Pick your move";
 	    	pointsH2.innerText = winScore;
 	    	textplayerScore.innerText = 0;
 			textcompScore.innerText = 0;
-			compScore = 0
+			compScore = 0;
 			playerScore = 0;
 			resultContainer.innerText = '';
 	    } 
@@ -81,17 +84,20 @@
 			computerMovevar = 'r';
 			console.log("Computer: Rock");
 			cMoveDisplay.innerText = "Computer plays: Rock";
+			document.getElementsByClassName("text-container")[0].innerHTML += "Computer: Rock vs ";
 			compPick = 'Rock';
 			document.getElementById("compRock").classList.remove("hide-comp-move");
 		} else if (randomFigure === 2) {
 			computerMovevar = 'p';
 			console.log("Computer: Paper");
+			document.getElementsByClassName("text-container")[0].innerHTML += "Computer: Paper vs ";
 			cMoveDisplay.innerText = "Computer plays: Paper";
 			compPick = 'Paper';
 			document.getElementById("comPaper").classList.remove("hide-comp-move");
 		} else if (randomFigure === 3) {
 			computerMovevar = 's';
 			console.log("Computer: Scissors");
+			document.getElementsByClassName("text-container")[0].innerHTML += "Computer: Scissors vs ";
 			cMoveDisplay.innerText = "Computer plays: Scissors";
 			compPick = 'Scissors';
 			document.getElementById("compScissors").classList.remove("hide-comp-move");
@@ -103,11 +109,13 @@
 	function playerMove (move) {
 		if (isNaN(winScore) || winScore === 0 || winScore == null || winScore === ''){
 			console.log("Please click New Game button to set up winning score");
+			document.getElementsByClassName("text-container")[0].innerHTML += "Please click New Game button to set up winning score" + "<br>";
 			return;
 		} else {
 			computerMove();		
 			if (move == "r"){
 				console.log("Player: Rock");
+				document.getElementsByClassName("text-container")[0].innerHTML += "Player: Rock" + "<br>";
 				moveObj['pm'] = 'r';	
 				moveObj['win'] = 's';	
 				moveObj['lose'] = 'p';	
@@ -144,12 +152,14 @@
 			document.getElementById("move-output-container").classList.add("success");
 			output.innerText = "You Win";
 			resultContainer.innerText = '';
+			var cMoveDisplay = document.getElementById("computer-move-text").innerText = "";
 		} else if (winScore == computerScore || winScore < computerScore) {
 			console.log("Computer Wins the game");
 			reset();
 			document.getElementById("move-output-container").classList.add("warning");
 			output.innerText = "You Lose, try again?"
 			resultContainer.innerText = '';
+			var cMoveDisplay = document.getElementById("computer-move-text").innerText = "";
 		} else {
 			console.log("Keep playing");
 		}
@@ -157,26 +167,9 @@
 
 	function reset() {
 		winScore = 0;
-	}
-	function textGenerate (compPick) {
-
+		var compIcons = document.getElementsByClassName("comp-pick");
+		for (var i = 0; i < compIcons.length; i++) {
+			compIcons[i].classList.add('hide-comp-move');
+		}
 	}
  })();
-
-
-
-
-
-  /* 
-
-  TODO
- - wyswietlanei koncowe
- - funkcja reset po wygraniu
-  var a = {
-  'k': 'n',
-  'n': 'p',
-  'p': 'k'
-}
-
-if (a[playerPick] == randomFigure)
-*/

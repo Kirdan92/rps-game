@@ -14,23 +14,24 @@ body {
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 25% 1fr 25%;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr auto;
 	grid-template-areas:
 		"points comp new-game"
 		"score output log"
 		". player log";
 	grid-gap: 15px;
+	
 
 }
 #computer-move-container {
-	background-color: #fff;
+	background-color: #ff6b6b;
 	grid-area: comp;
 	display: grid;
 	grid-template-rows: 1fr auto;
-	font-size: 1em;
+	font-size: 1.2em;
 }
 #computer-move-container i {
-	font-size: 2em;
+	font-size: 2.2em;
 	
 }
 .hide-comp-move {
@@ -67,7 +68,7 @@ body {
 }
 /* Score styles*/
 #score-container {
-	background-color: blue;
+	background-color: #01a3a4;
 	grid-area: score;
 	display: grid;
 	font-size: 1em;
@@ -93,6 +94,19 @@ body {
 }
 #new-game-btn {
 	z-index: 2;
+	font-size: 1.5em;
+	color: #10ac84;
+	border: 2px solid #10ac84;
+	background: #222f3e;
+	display: flex;
+	justify-content: center;	
+}
+#new-game-btn:hover {
+	color: #222f3e;
+	background: #10ac84;
+}
+#new-game-btn i {
+	margin-right: 10px;
 }
 #move-output-container {
 	background-color: #dfe4ea;
@@ -102,7 +116,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	font-size: 1.2em;
-
+	padding: 0 10px;
 }
 .warning {
 	transition: color 0.45s;
@@ -118,20 +132,53 @@ body {
 	outline: 6px solid rgba(22, 148, 0, 0.7);
 	font-weight: 700;
 }
-
 #player-move-container {
-	background-color: red;
 	grid-area: player;
+	background-color: #2e86de;
+	display: flex;
+	flex-direction: column;
+	min-height: 95px;
+}
+#player-move-container header {
+	margin-bottom: 10px;
+}
+#player-move-buttons {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 10px;
 }
-#player-move-container button {
-	font-size: 3em;
+#player-move-buttons button {
+	font-size: 2.6em;
 	border: none;
 	background: none;
 }
-#player-move-container button:hover {
+#player-move-buttons button:hover {
 	color: #fff;
 	border: 1px solid #fff;
 }
+.text-container {
+	max-height: 150px;
+	font-size: 10px;
+}
+
+@media (max-width: 850px) {
+	.game-container {
+		width: 100%;
+		padding: 0 10px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr auto auto;
+		grid-gap-row: 20px;
+		grid-template-areas:
+			"points new-game"
+			"score comp"
+			"output output "
+			"player player"
+			"log log";
+
+	}
+}
+
+
+	
