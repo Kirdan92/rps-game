@@ -16,17 +16,44 @@ body {
 	grid-template-columns: 25% 1fr 25%;
 	grid-template-rows: 1fr 1fr 1fr;
 	grid-template-areas:
-		"points comp ."
-		"score output new-game"
-		". player .";
+		"points comp new-game"
+		"score output log"
+		". player log";
 	grid-gap: 15px;
 
 }
 #computer-move-container {
 	background-color: #fff;
 	grid-area: comp;
-
+	display: grid;
+	grid-template-rows: 1fr auto;
+	font-size: 1em;
 }
+#computer-move-container i {
+	font-size: 2em;
+	
+}
+.hide-comp-move {
+	display: none;
+}
+.show-comp-move {
+	display: block;
+}
+
+#log-container {
+	background-color: #fff;
+	grid-area: log;
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+#log-container h2{
+	margin: 0;
+}
+#log-container	.text-container {
+		padding: 5px;
+		overflow-y: scroll;
+		word-wrap: break-word;
+	}
 /* Points styles*/
 #point-to-win-container {
 	grid-area: points;
@@ -68,13 +95,43 @@ body {
 	z-index: 2;
 }
 #move-output-container {
-	background-color: #ccc;
+	background-color: #dfe4ea;
 	grid-area: output;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2em;
+
 }
+.warning {
+	transition: color 0.45s;
+	color: #EA2027;
+	border: 2px solid #EA2027;
+	outline: 6px solid rgba(211, 0, 0, 0.7);
+	font-weight: 700;
+}
+.success {
+	transition: color 0.45s;
+	color: #009432;
+	border: 2px solid #009432;
+	outline: 6px solid rgba(22, 148, 0, 0.7);
+	font-weight: 700;
+}
+
 #player-move-container {
 	background-color: red;
 	grid-area: player;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 10px;
+}
+#player-move-container button {
+	font-size: 3em;
+	border: none;
+	background: none;
+}
+#player-move-container button:hover {
+	color: #fff;
+	border: 1px solid #fff;
 }
